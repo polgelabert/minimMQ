@@ -14,6 +14,97 @@ public class ProductManagerImpl implements ProductManager {
     private static ProductManagerImpl instance;
     private Map < String, Producto> map;
     private Map < String, Usuario> users;
+    Queue<Producto> queuePedido = new Queue<Producto>() {
+        @Override
+        public boolean add(Producto producto) {
+            return false;
+        }
+
+        @Override
+        public boolean offer(Producto producto) {
+            return false;
+        }
+
+        @Override
+        public Producto remove() {
+            return null;
+        }
+
+        @Override
+        public Producto poll() {
+            return null;
+        }
+
+        @Override
+        public Producto element() {
+            return null;
+        }
+
+        @Override
+        public Producto peek() {
+            return null;
+        }
+
+        @Override
+        public int size() {
+            return 0;
+        }
+
+        @Override
+        public boolean isEmpty() {
+            return false;
+        }
+
+        @Override
+        public boolean contains(Object o) {
+            return false;
+        }
+
+        @Override
+        public Iterator<Producto> iterator() {
+            return null;
+        }
+
+        @Override
+        public Object[] toArray() {
+            return new Object[0];
+        }
+
+        @Override
+        public <T> T[] toArray(T[] a) {
+            return null;
+        }
+
+        @Override
+        public boolean remove(Object o) {
+            return false;
+        }
+
+        @Override
+        public boolean containsAll(Collection<?> c) {
+            return false;
+        }
+
+        @Override
+        public boolean addAll(Collection<? extends Producto> c) {
+            return false;
+        }
+
+        @Override
+        public boolean removeAll(Collection<?> c) {
+            return false;
+        }
+
+        @Override
+        public boolean retainAll(Collection<?> c) {
+            return false;
+        }
+
+        @Override
+        public void clear() {
+
+        }
+    };
 
     private ProductManagerImpl(){ this.map = new HashMap(); this.users = new HashMap(); }
 
@@ -52,108 +143,23 @@ public class ProductManagerImpl implements ProductManager {
 
         Usuario user = getUser(nombreUsuario);
 
-        Queue<Producto> queuePedido = new Queue<Producto>() {
-           @Override
-           public boolean add(Producto producto) {
-               return false;
-           }
-
-           @Override
-           public boolean offer(Producto producto) {
-               return false;
-           }
-
-           @Override
-           public Producto remove() {
-               return null;
-           }
-
-           @Override
-           public Producto poll() {
-               return null;
-           }
-
-           @Override
-           public Producto element() {
-               return null;
-           }
-
-           @Override
-           public Producto peek() {
-               return null;
-           }
-
-           @Override
-           public int size() {
-               return 0;
-           }
-
-           @Override
-           public boolean isEmpty() {
-               return false;
-           }
-
-           @Override
-           public boolean contains(Object o) {
-               return false;
-           }
-
-           @Override
-           public Iterator<Producto> iterator() {
-               return null;
-           }
-
-           @Override
-           public Object[] toArray() {
-               return new Object[0];
-           }
-
-           @Override
-           public <T> T[] toArray(T[] a) {
-               return null;
-           }
-
-           @Override
-           public boolean remove(Object o) {
-               return false;
-           }
-
-           @Override
-           public boolean containsAll(Collection<?> c) {
-               return false;
-           }
-
-           @Override
-           public boolean addAll(Collection<? extends Producto> c) {
-               return false;
-           }
-
-           @Override
-           public boolean removeAll(Collection<?> c) {
-               return false;
-           }
-
-           @Override
-           public boolean retainAll(Collection<?> c) {
-               return false;
-           }
-
-           @Override
-           public void clear() {
-
-           }
-       };
-
         queuePedido.addAll(listaProductos);
 
-        user.listaPedidosPedidos.add(queuePedido);
+        for(Producto p : listaProductos) {
+            user.listaPedidosPedidos.add(queuePedido.poll(p));
+        }
 
 
         return true;
 
     }
 
+    public boolean servirPedido (Queue<Producto> queuePedido) {
 
+        
+
+        return true;
+    }
 
 
     public List<Producto> listaOrdenadaAscPrecio (){

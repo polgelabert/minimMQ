@@ -3,9 +3,7 @@ package modelo;
 import controlador.exceptions.ObjetoNoEncontradoException;
 import controlador.exceptions.UsuarioSinObjetosException;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 
 public class Usuario {
@@ -17,7 +15,122 @@ public class Usuario {
     public int defensa;
     public int resistencia;
     public List<Producto> listaPedidosEntregados;
-    public List<Queue> listaPedidosPedidos;
+    public List<Queue> listaPedidosPedidos = new List<Queue>() {
+        @Override
+        public int size() {
+            return 0;
+        }
+
+        @Override
+        public boolean isEmpty() {
+            return false;
+        }
+
+        @Override
+        public boolean contains(Object o) {
+            return false;
+        }
+
+        @Override
+        public Iterator<Queue> iterator() {
+            return null;
+        }
+
+        @Override
+        public Object[] toArray() {
+            return new Object[0];
+        }
+
+        @Override
+        public <T> T[] toArray(T[] a) {
+            return null;
+        }
+
+        @Override
+        public boolean add(Queue queue) {
+            return false;
+        }
+
+        @Override
+        public boolean remove(Object o) {
+            return false;
+        }
+
+        @Override
+        public boolean containsAll(Collection<?> c) {
+            return false;
+        }
+
+        @Override
+        public boolean addAll(Collection<? extends Queue> c) {
+            return false;
+        }
+
+        @Override
+        public boolean addAll(int index, Collection<? extends Queue> c) {
+            return false;
+        }
+
+        @Override
+        public boolean removeAll(Collection<?> c) {
+            return false;
+        }
+
+        @Override
+        public boolean retainAll(Collection<?> c) {
+            return false;
+        }
+
+        @Override
+        public void clear() {
+
+        }
+
+        @Override
+        public Queue get(int index) {
+            return null;
+        }
+
+        @Override
+        public Queue set(int index, Queue element) {
+            return null;
+        }
+
+        @Override
+        public void add(int index, Queue element) {
+
+        }
+
+        @Override
+        public Queue remove(int index) {
+            return null;
+        }
+
+        @Override
+        public int indexOf(Object o) {
+            return 0;
+        }
+
+        @Override
+        public int lastIndexOf(Object o) {
+            return 0;
+        }
+
+        @Override
+        public ListIterator<Queue> listIterator() {
+            return null;
+        }
+
+        @Override
+        public ListIterator<Queue> listIterator(int index) {
+            return null;
+        }
+
+        @Override
+        public List<Queue> subList(int fromIndex, int toIndex) {
+            return null;
+        }
+    };
 
 
     public Usuario(){}

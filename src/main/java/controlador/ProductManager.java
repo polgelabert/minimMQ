@@ -13,7 +13,7 @@ public interface ProductManager {
 
     public boolean realizarPedido (String nombreUsuario, List<Producto> listProductos) throws UsuarioNoExisteException;
 
-   // public boolean servirPedido (Queue<Producto> queuePedido);
+    public boolean servirPedido (Queue<Producto> queuePedido);
 
     //public boolean listaPedidosRealizados (List<Producto> listaPedidosEntregados);
 
